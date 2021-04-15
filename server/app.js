@@ -21,7 +21,7 @@ app.use(function (req, res) {
 	const err = new Error('Not Found');
 	err.status = 404;
 	res.json(err);
-})
+});
 
 
 app.listen(app.get('port'), function () {
