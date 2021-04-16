@@ -7,3 +7,5 @@ const ProjectSchema = new mongoose.Schema({
 	description: { type: String },
 	isActive: { type: Boolean, default: true }
 });
+
+module.exports = mongoose.model('Project',ProjectSchema);
