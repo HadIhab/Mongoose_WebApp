@@ -27,11 +27,17 @@ app.use(function (req, res) {
 });
 
 //Connecting to MongoDB
-mongoose.connect('mongodb://localhost:27017/virtualstandups', { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect('mongodb://localhost:27017/virtualstandups', { useNewUrlParser: true, useUnifiedTopology: true });
+/******* Migrating data base to the cloud *******/
+
+mongoose.connect('mongodb+srv://ihab:mongooseapp@cluster0.l4ijn.mongodb.net/virtualstandups?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-	console.log(`${chalk.yellow('[Data base]: Connected to MongoDB')}`);
+	//local DB
+	//console.log(`${chalk.yellow('[Data base]: Successfully connected to MongoDB')}`);
+	//Cloud DB
+	console.log(`${chalk.yellow('[Cloud DB]: Successfully connected to Cloud MongoDB')}`);
 	app.listen(app.get('port'), function () {
 	console.log(`[Server]: API Server Listening on port ${chalk.white(app.get('port'))} !`);
 	});
